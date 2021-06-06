@@ -1,12 +1,14 @@
 # Gatsby client-side pages path Windows issue
 
-Issue reference: `TBD`
+Issue reference: https://github.com/gatsbyjs/gatsby/issues/31791
 
-### Description
+## Description
+Creating client-side pages with path match parameters fails on Windows because of invalid path characters (`:`):
+```
+Error: C:\Users\[redacted]\public\page-data\path\:param contains invalid WIN32 path characters.
+```
 
-Creating client-side pages with path match parameters fails on Windows because of invalid path characters (`:`).
-
-### Steps to reproduce
+### Steps to reproduce:
 
 1. Create a client-side page configuration in the `gatsby-node.js` file:
     ```
@@ -30,8 +32,14 @@ Creating client-side pages with path match parameters fails on Windows because o
 
     export default PageTemplate
     ```
-3. Run `gatsby develop` to build the project.
+3. Run `gatsby develop` to build the project on a Windows machine.
 4. Visit `http://localhost:8000/path/1` *(if the process hasn't failed yet)*.
+
+### Expected result
+- Ability to visit `http://localhost:8000/path/1` and see the provided parameter (`1`)
+
+### Actual result
+*(refer to issue description)*
 
 <hr />
 
