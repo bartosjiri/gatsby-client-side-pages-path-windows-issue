@@ -1,7 +1,7 @@
 import React from 'react'
 
-const PageTemplate = ({id}) => (
-  <h1>{id}</h1>
+const PageTemplate = ({param}) => (
+  <h1>{param}</h1>
 )
 
 export default PageTemplate
